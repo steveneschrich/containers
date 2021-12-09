@@ -1,0 +1,8 @@
+Doing things remotely, push to dockerhub then run on cluster worked better than having cluster environments to build.
+
+Base images: alpine very small, python included. Maybe have options, but should try using this.
+
+Consider installing dev tools, compiling what's needed, then removing tools to keep size small.
+
+Developing containers, go big first then split into components as it makes sense.
+
