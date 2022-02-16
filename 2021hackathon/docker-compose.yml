@@ -1,0 +1,42 @@
+version: '3.5'
+services:
+
+### SAMTOOLS ##############################################
+    samtools:
+      image: biocontainers/samtools:v1.9-4-deb_cv1
+
+### PICARD ##############################################
+    picard:
+      image: biocontainers/picard
+
+### BWA ##############################################
+    bwa:
+      image: biocontainers/bwa
+
+### R ##############################################
+    r:
+      build:
+        context: ./R/${R_VERSION}
+        args:
+          - R_VERSION=${R_VERSION}
+      image: r:${R_VERSION}
+      container_name: r-${R_VERSION}
+
+### R-TIDYVERSE ##############################################
+    r-tidyverse:
+      build:
+        context: ./R-tidyverse/${R_VERSION}
+        args:
+          - R_VERSION=${R_VERSION}
+      image: r-tidyverse:${R_VERSION}
+      container_name: r-tidyverse-${R_VERSION}
+
+
+### R-SHINY ##############################################
+    r-shiny:
+      build:
+        context: ./shiny/${R_VERSION}
+        args:
+          - R_VERSION=${R_VERSION}
+      image: r-shiny:${R_VERSION}
+      container_name: shiny-${R_VERSION}
