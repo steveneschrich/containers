@@ -1,0 +1,5 @@
+
+.DS_Store
+demo_data
+docker/maxquant/maxquant_1.6.2.10/MaxQuant_1.6.2.10.zip
+docker/maxquant/maxquant_2.0.3.1/MaxQuant_2.0.3.1.zip

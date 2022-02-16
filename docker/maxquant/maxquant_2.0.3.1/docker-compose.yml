@@ -1,0 +1,6 @@
+services:
+   maxquant:
+      image: dockerhub.moffitt.org/hpc/maxquant:2.0.3.1
+      build: .
+      environment:
+         APP_IMAGE_DIR: .

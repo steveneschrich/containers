@@ -6,3 +6,10 @@ Consider installing dev tools, compiling what's needed, then removing tools to k
 
 Developing containers, go big first then split into components as it makes sense.
 
+Do consider not reimplementing the wheel, good options out there but may need patches.
+
+Microservices, separate for different languages, etc.
+
+"Official" version, 
+
+We went to genomics, for compose.
