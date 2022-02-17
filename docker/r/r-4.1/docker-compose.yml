@@ -1,0 +1,6 @@
+services:
+   r:
+      image: dockerhub.moffitt.org/hpc/r:4.1
+      build: .
+      environment:
+         APP_IMAGE_DIR: .
