@@ -73,7 +73,9 @@ RUN apt-get install -y apt-transport-https software-properties-common && \
         libhdf5-dev \
         qpdf \
         texinfo \
-        vim  
+        vim  \
+        libcurl4-openssl-dev 
+
 
 
 # Install R and pandoc
