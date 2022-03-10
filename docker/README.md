@@ -51,6 +51,22 @@ docker push dockerhub.moffitt.org/hpc/maxquant:2.0.3.1
 
 Docker should then upload this to the hpc directory. Note that at some point in the future, the hpc directory may be write-restricted so that an additional layer of authentication is required.
 
+# Makefiles
+I have started implementing Makefiles for the container application. That is, there is a makefile in the R directory which will build each of the R/r-4.1, etc images. So you can type 
+```
+make r-4.1
+```
+in the R directory.
+
+
+It also provides a mechanism for the "latest" version being specified in the Makefile. In the Makefile, it's just tagging that particular version as "latest" as well. This way when you push the images to dockerhub there will be "latest" to refer to.
+
+Finally, there is a 
+```
+make push
+```
+which pushes the images (including the latest tag) to the dockerhub server.
+
 # Running the Image: RED
 Once the image has been pushed to the local dockerhub, you can access it via the RED cluster. Since the hub is (currently) open access, you can pull the image by the following:
 ```
