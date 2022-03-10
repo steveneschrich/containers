@@ -27,8 +27,9 @@ RUN apt update && \
 	update-ca-certificates --verbose && \
 	echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && locale-gen en_US.utf8 && update-locale LANG=en_US.UTF-8
 
-RUN apt-get install -y apt-transport-https software-properties-common && \
-    apt-get -y -qq install  \
+RUN apt-get update && \
+	apt-get install -y apt-transport-https software-properties-common && \
+	apt-get -y -qq install  \
 	lmod \
 	proj-bin \
         libcairo2-dev \
@@ -74,7 +75,8 @@ RUN apt-get install -y apt-transport-https software-properties-common && \
         qpdf \
         texinfo \
         vim  \
-        libcurl4-openssl-dev 
+        libcurl4-openssl-dev  \
+	libnlopt-dev 
 
 
 
@@ -107,7 +109,6 @@ RUN mkdir -p /usr/local/lib/R/etc && \
 
 ARG R_HOME=/usr/local/lib/R
 ENV CRAN=https://cloud.r-project.org
-ENV CRAN_SOURCE=https://cloud.r-project.org
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 ENV TZ=America/New_York
