@@ -32,6 +32,7 @@ RUN apt-get update && \
 	apt-get -y -qq install  \
 	lmod \
 	proj-bin \
+	libproj-dev \
         libcairo2-dev \
         libx11-dev \
         libxt-dev \
