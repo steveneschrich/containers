@@ -77,7 +77,10 @@ RUN apt-get update && \
         texinfo \
         vim  \
         libcurl4-openssl-dev  \
-	libnlopt-dev 
+	libnlopt-dev \
+	libpng-dev \
+	icu-devtools \
+	cmake
 
 
 
