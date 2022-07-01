@@ -1,5 +1,10 @@
-
 .DS_Store
 demo_data
 docker/maxquant/maxquant_1.6.2.10/MaxQuant_1.6.2.10.zip
 docker/maxquant/maxquant_2.0.3.1/MaxQuant_2.0.3.1.zip
+docker/majiq/majiq-2.3/Majiq_Voila Download.html
+docker/maxquant/maxquant-1.6.2.10/MaxQuant_1.6.2.10.zip
+docker/maxquant/maxquant-2.0.3.1/MaxQuant_2.0.3.1.zip
+docker/majiq/majiq-2.3/Majiq_Voila Download_files
+docker/majiq/majiq_url.env
+.vscode

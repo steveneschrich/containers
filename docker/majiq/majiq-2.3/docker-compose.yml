@@ -1,6 +1,0 @@
-services:
-   majiq:
-      image: dockerhub.moffitt.org/hpc/majiq:2.3
-      build: .
-      environment:
-         APP_IMAGE_DIR: .

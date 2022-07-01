@@ -1,0 +1,8 @@
+services:
+   majiq-2.3:
+      image: dockerhub.moffitt.org/hpc/majiq:2.3
+      build: majiq-2.3
+
+
+
+

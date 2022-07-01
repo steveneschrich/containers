@@ -6,6 +6,7 @@ LABEL description="This is a majiq image with basic tools."
 
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive  
+ARG MAJIQ_URL
 
 # Update Ubuntu Software repository
 RUN apt update && \
@@ -27,9 +28,12 @@ RUN apt update && \
 
 RUN apt-get install -y apt-transport-https software-properties-common && \
     apt-get -y -qq install  \
-	python \
+	python3 \
+	python3-venv \
+	python3-pip \
 	gcc \
 	make \
+	git \
 	libbz2-dev \
 	zlib1g-dev \
 	libncurses5-dev \
@@ -37,54 +41,12 @@ RUN apt-get install -y apt-transport-https software-properties-common && \
 	liblzma-dev  \
         libssl-dev \
 	libcurl4 \
-	libcurl4-openssl-dev
+	libcurl4-openssl-dev  \
+	libhts-dev
 	
-RUN cd tmp && \
-     wget --no-check-certificate https://github.com/samtools/htslib/releases/download/1.15.1/htslib-1.15.1.tar.bz2 && \
-     tar xjf htslib-1.15.1.tar.bz2 && \
-     cd htslib-1.15.1 && \
-     make
-
-        #libcairo2-dev \
-        #libx11-dev \
-        #libxt-dev \
-        #rsync \
-        #x11proto-core-dev \
-        #xauth \
-        #xfonts-base \
-        #        xvfb \
-        #        libcairo2-dev \
-        #        libgit2-dev \
-        #        libmysqlclient-dev \
-        #        libpq-dev \
-        #        libsasl2-dev \
-        #        libsqlite3-dev \
-        #        libssh2-1-dev \
-        #        unixodbc-dev \
-        #        fonts-roboto \
-        #        ghostscript \
-         #       hugo \
-         #       less \
-         #       libglpk-dev \
-         #       libgmp3-dev \
-         #       libfribidi-dev \
-         #       libharfbuzz-dev \
-         #       libhunspell-dev \
-         #       libicu-dev \
-         #       liblzma-dev \
-          #      libmagick++-dev \
-          #      libopenmpi-dev \
-          #      libpcre2-dev \
-          #      libv8-dev \
-          #      libxml2-dev \
-          #      libxslt1-dev \
-          #      libzmq3-dev \
-          #      libhdf5-dev \
-          #      qpdf \
-          #      texinfo \
-          #      vim  && \
-        # Get all of texlive since its hard to add new packages later.
-        #apt-get -y install texlive-full
+RUN git clone --config http.sslVerify=false -q $MAJIQ_URL /tmp/majiq_git && \
+   pip3 install /tmp/majiq_git && \
+   rm -rf /tmp/majiq_git
 
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
