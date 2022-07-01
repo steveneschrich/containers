@@ -1,0 +1,4 @@
+services:
+   apt-2.11.4:
+      image: dockerhub.moffitt.org/hpc/apt:2.11.4
+      build: apt-2.11.4
