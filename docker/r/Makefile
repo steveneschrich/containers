@@ -11,10 +11,10 @@ latest: $(imagename)-$(latest)
 
 r-4.1:
 	docker compose build  $@
-	
+
 r-4.2.1:
 	docker compose build $@
 
-push:
+push: latest
 	docker push $(dockerhub)/$(imagename):$(latest)
 	docker push $(dockerhub)/$(imagename):latest
