@@ -1,6 +1,0 @@
-services:
-   rstudio-server:
-      image: dockerhub.moffitt.org/hpc/rstudio-server:2022.02.2-485
-      build: .
-      environment:
-         APP_IMAGE_DIR: .

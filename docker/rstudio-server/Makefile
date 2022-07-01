@@ -1,5 +1,4 @@
-
-latest = 2022.02.0-443
+latest = 2022.02.3-492
 dockerhub = dockerhub.moffitt.org/hpc
 imagename = rstudio-server
 
@@ -9,13 +8,19 @@ latest: $(latest)
 	docker tag $(dockerhub)/$(imagename):$(latest) $(dockerhub)/$(imagename):latest
 	@echo Run make push to push the images to the server.
 
+2022.02.3-492:
+	docker compose build $(imagename)-$@
+
+2022.02.2-485:
+	docker compose build $(imagename)-$@
+
 2022.02.0-443:
-	docker compose -f rstudio-server-2022.02.0-443/docker-compose.yml build
+	docker compose build $(imagename)-$@
 
 v2021.09.2:
-	docker compose -f rstudio-server-v2021.09.2/docker-compose.yml build
+	docker compose build $(imagename)-$@
 
-push:
-	docker push $(dockerhub)/$(imagename):2022.02.0-443
+push: latest
+	docker push $(dockerhub)/$(imagename):$(latest)
 	docker push $(dockerhub)/$(imagename):latest
 
