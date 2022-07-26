@@ -2,6 +2,19 @@
 
 This directory (and below) are dedicated to docker containers for HPC. Based on initial evaluations, it seems that the best approach for managing a large number of containers would be to create docker containers and then import these into singularity as needed. As opposed to building singularity-specific containers. Either way they get to the same image type but many tools are Dockerized as opposed to singularity-ized. 
 
+# tl;dr
+To build an existing image and push to a local dockerhub:
+```
+cd r;make;make push
+```
+
+To create a new image:
+- Create a new directory and copy Makefile/docker-compose.yml into it.
+- Modify Makefile/docker-compose.yml as needed for new container.
+- Create version directory and copy/create Dockerfile to create new container
+- Then run the above commands to build/push container
+
+# Overview
 There are a number of steps in the development and deployment of a container: 
 
 - developing the Dockerfile and docker-compose files
