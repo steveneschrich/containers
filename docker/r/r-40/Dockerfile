@@ -111,6 +111,12 @@ RUN mkdir -p /usr/local/lib/R/etc && \
     echo "options(bitmapType='cairo')" > /usr/local/lib/R/etc/Rprofile.site && \
     chmod 644 /usr/local/lib/R/etc/Rprofile.site
 
+# New, add in quarto to the R base
+RUN apt-get install -y gdebi-core && \
+   wget --no-check-certificate https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.269/quarto-1.2.269-linux-amd64.deb && \
+   gdebi -n quarto-1.2.269-linux-amd64.deb
+
+
 ARG R_HOME=/usr/local/lib/R
 ENV CRAN=https://cloud.r-project.org
 ENV LC_ALL=en_US.UTF-8

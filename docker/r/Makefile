@@ -1,5 +1,5 @@
 
-latest = 4.2.1
+latest = 4.2.2
 dockerhub = dockerhub.moffitt.org/hpc
 imagename = r
 
@@ -13,6 +13,9 @@ r-4.1:
 	docker compose build  $@
 
 r-4.2.1:
+	docker compose build $@
+
+r-4.2.2:
 	docker compose build $@
 
 push: latest
