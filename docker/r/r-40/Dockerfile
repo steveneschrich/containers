@@ -1,8 +1,8 @@
 FROM ubuntu:20.04
 
 LABEL maintainer="Steven.Eschrich@moffitt.org"
-LABEL version="0.1"
-LABEL description="This is a base Ubuntu 20.04 image with basic tools."
+LABEL version="4.2.2"
+LABEL description="This is an R installation with base Ubuntu 20.04 image with basic tools."
 
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive  
@@ -113,9 +113,13 @@ RUN mkdir -p /usr/local/lib/R/etc && \
 
 # New, add in quarto to the R base
 RUN apt-get install -y gdebi-core && \
-   wget --no-check-certificate https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.269/quarto-1.2.269-linux-amd64.deb && \
-   gdebi -n quarto-1.2.269-linux-amd64.deb
+   wget --no-check-certificate https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.313/quarto-1.2.313-linux-amd64.deb && \
+   gdebi -n quarto-1.2.313-linux-amd64.deb
 
+# Add in dvc (data version control)
+# https://github.com/iterative/dvc
+RUN wget --no-check-certificate https://github.com/iterative/dvc/releases/download/2.43.1/dvc_2.43.1_amd64.deb && \
+	gdebi -n dvc_2.43.1_amd64.deb
 
 ARG R_HOME=/usr/local/lib/R
 ENV CRAN=https://cloud.r-project.org
