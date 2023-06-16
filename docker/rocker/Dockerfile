@@ -29,6 +29,12 @@ RUN apt update && \
 RUN apt-get -y install \
 	texlive \
 	texlive-latex-extra
+# Add in packages that are needed for compiling various software
+RUN apt-get -y install \
+	libz-dev \
+	vim \
+	nano \
+	openssh-client
 
 # Add in dvc (data version control)
 # https://github.com/iterative/dvc
